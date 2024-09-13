@@ -12,11 +12,9 @@ function reducer(state, action) {
         case "cartAdd":
             items.map((x) => x.name === action.payload.name ? action.payload: x);
             // cart.map((x) => x.name === action.payload.name ? action.payload: x) ;
-            console.log([...cart, ...cart.map(x => x.name === action.payload.name ? action.payload: x)]);
-            
-            // if (action.payload.num === 1) return {...state, cart:[...cart, action.payload]};
-            // return {...state, cart: cart.map(x => x.name === action.payload.name ? action.payload: x)
-            return {...state, cart: action.payload.num === 1 ? [...cart, action.payload]: cart.map(x => x.name === action.payload.name ? action.payload: x)}
+            console.log(cart.map(x => x.name === action.payload.name ? action.payload: x));
+            if (action.payload.num === 0) return {...state, cart: cart.filter(x => x.name !== action.payload.name)}
+            return {...state, cart: cart.length === 0 ? [...cart, action.payload]: cart.map(x => x.name === action.payload.name ? action.payload: x)};
         case "cartRemove":
             return {...state, cart: cart.filter((x) => x.name !== action.payload.name),};
         default:
