@@ -25,7 +25,6 @@
     align-items: center;
 }
 .cartItem > button{
-    border-radius: 25%;
     height: 1.8rem;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -44,9 +43,10 @@
     color: hsl(14, 86%, 42%);
 }
 .price{
-    margin-left: 1.2rem;
+    /* margin-left: 1.2rem; */
+    margin-left: 1.0rem;
     font-weight: 400;
-    margin-right: 0.4rem;
+    margin-right: 0.8rem;
 }
 .totalPrice{
     font-weight: 600;
@@ -63,4 +63,25 @@ hr{
 }
 .orderTotal> h2{
     color: hsl(14, 65%, 9%);
+}
+
+.carbon{
+    background-color: hsl(20, 50%, 98%);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 1.2rem;
+}
+.carbon p span{
+    font-weight: 700;
+}
+.orderBtn{
+    width: 100%;
+    color: white;
+    background-color: hsl(14, 86%, 42%);
+    border: none;
+    border-radius: 10rem;
+    padding: 1.2rem 3.2rem;
+    cursor: pointer;
+    font-weight: 600;
 }

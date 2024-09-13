@@ -5,17 +5,20 @@ import ItemList from "./components/ItemList";
 // import "./App.css";
 
 function reducer(state, action) {
+    const {items, cart} = state;
     switch (action.type) {
         case "dataReceived":
             return { ...state, items: action.payload };
         case "cartAdd":
-            state.items.map((x) => x.name === action.payload.name ? { ...action.payload, isActive: true }: x);
-            console.log(action.payload);
-                        
-            // console.log(state.cart.filter(x => x.name===action.payload.name).length ? "Yes":"no");
-            return {...state, cart: [...state.cart, { ...action.payload, isActive: false }]};
+            items.map((x) => x.name === action.payload.name ? action.payload: x);
+            // cart.map((x) => x.name === action.payload.name ? action.payload: x) ;
+            console.log([...cart, ...cart.map(x => x.name === action.payload.name ? action.payload: x)]);
+            
+            // if (action.payload.num === 1) return {...state, cart:[...cart, action.payload]};
+            // return {...state, cart: cart.map(x => x.name === action.payload.name ? action.payload: x)
+            return {...state, cart: action.payload.num === 1 ? [...cart, action.payload]: cart.map(x => x.name === action.payload.name ? action.payload: x)}
         case "cartRemove":
-            return {...state, cart: state.cart.filter((x) => x.name !== action.payload.name),};
+            return {...state, cart: cart.filter((x) => x.name !== action.payload.name),};
         default:
             break;
     }

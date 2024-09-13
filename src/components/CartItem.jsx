@@ -8,15 +8,9 @@ function CartItem({item, dispatch}) {
                 <div>
                     <p className={styles.itemName}>{item.name}</p>
                     <p>
-                        <span className={styles.quantity}>1x </span>
-                        <span className={styles.price}>
-                            {" "}
-                            @${item.price.toFixed(2)}
-                        </span>
-                        <span className={styles.totalPrice}>
-                            {" "}
-                            ${item.price.toFixed(2)}
-                        </span>
+                        <span className={styles.quantity}>{item.num}x </span>
+                        <span className={styles.price}>@${item.price.toFixed(2)}</span>
+                        <span className={styles.totalPrice}>${(item.price * item.num).toFixed(2)}</span>
                     </p>
                 </div>
                 <button
