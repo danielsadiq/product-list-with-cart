@@ -1,0 +1,52 @@
+.listItem {
+    position: relative;
+    max-width: 100%;
+}
+.imgBtn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+.imgBtn > img {
+    width: 100%;
+    border-radius: 12px;
+}
+/* .addImage{
+    width: 30px;
+} */
+.imgBtn > button {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10rem;
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+    /* font-size: 20px; */
+
+    position: absolute;
+    bottom: -20px;
+        
+}
+.textDiv{
+    margin-top: 30px;
+}
+.textDiv > p{
+    margin: 10px 0px;
+}
+.title{
+    font-weight: 700;
+}
+.price{
+    color: hsl(14, 86%, 42%);
+    font-weight: 600;
+}
+@media (max-width: 767px) {
+    .listItem  {
+        width: 100%;
+        border-radius: 12px;
+    }
+}
