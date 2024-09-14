@@ -1,7 +1,8 @@
 .cartBody{
     background-color: white;
     /* margin-top: 5%; */
-    padding: 4%;
+    padding: 6%;
+    /* z-index: 991; */
 }
 .cartBody > h3{
     color: hsl(14, 86%, 42%);

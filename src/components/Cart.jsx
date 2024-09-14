@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
-// import { useState } from "react";
-// import remove from "./assets/images/icon-remove-item.svg";
 import emptyCart from "./assets/images/illustration-empty-cart.svg";
 import carbon from "./assets/images/icon-carbon-neutral.svg";
 
@@ -34,7 +32,7 @@ function Cart({ cart, dispatch }) {
                     <img src={carbon} alt="carbon"/>
                     <p>This is a <span>carbon-neutral</span> delivery</p>
                 </div>
-                <button className={styles.orderBtn}>Confirm Order</button>
+                <button className={styles.orderBtn} onClick={()=> dispatch({type:"orderStatus"})}>Confirm Order</button>
                 
                 </>
             )}

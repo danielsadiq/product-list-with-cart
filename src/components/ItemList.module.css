@@ -1,7 +1,6 @@
 .ulList{
     list-style-type: none;
     max-width: 100%;
-    /* overflow: hidden; */
     padding-left: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
