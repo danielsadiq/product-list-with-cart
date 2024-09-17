@@ -12,13 +12,21 @@ function reducer(state, action) {
         case "dataReceived":
             return { ...state, items: action.payload };
         case "cartAdd":
-            cart.map((x) => x.name === action.payload.name ? action.payload: x) ;
-            if (action.payload.num === 0) return {...state, cart: cart.filter(x => x.name !== action.payload.name)}
-            return {...state, cart: [...cart.filter(x => x.name !== action.payload.name), action.payload]};
+            items.map(x => x.id === action.payload.id ? {...x, num: 1}: x)
+            return {...state, items:items.map(x => x.id === action.payload.id ? {...x, num: 1}: x)}
+            // return {...state, cart:[...cart, {...action.payload, num:1}]}
+        case 'cartIncrease':
+            // return {...state, cart: cart.map(x => x.id === action.payload.id ? {...x, num: x.num + 1}: x)}
+            return {...state, items: items.map(x => x.id === action.payload.id ? {...x, num: x.num + 1}: x)}
+        case 'cartDecrease':
+            // return {...state, cart: cart.map(x => x.id === action.payload.id ? {...x, num: x.num - 1}: x)}
+            return {...state, items: items.map(x => x.id === action.payload.id ? {...x, num: x.num - 1}: x)}
         case "cartRemove":
-            return {...state, cart: cart.filter((x) => x.name !== action.payload.name),};
+            return {...state, items: items.map(x => x.id === action.payload.id ? {...x, num: 0}: x)};
         case "orderStatus":
             return {...state, orderActive: !orderActive}
+        case "reset":
+            return {...initialItems}
         default:
             break;
     }
@@ -26,13 +34,14 @@ function reducer(state, action) {
 
 const initialItems = {
     items: [],
-    cart: [],
     orderActive:false,
 };
 
+
 function App() {
     const [state, dispatch] = useReducer(reducer, initialItems);
-    const { items, cart, orderActive } = state;
+    const { items,orderActive } = state;
+    const cart = items.filter(x => x.num > 0); 
     useEffect(function () {
         async function getData() {
             const res = await fetch("http://localhost:8000/items");
@@ -47,11 +56,13 @@ function App() {
         <div className={`grey-out ${orderActive ? 'show': "false"}`} aria-checked={orderActive ? true : false} ></div>
         <div className="container">
             <Main items={items}>
-                <ItemList items={items} dispatch={dispatch} />
+                <ItemList items={items} dispatch={dispatch} cart={cart} />
             </Main>
             <Cart cart={cart} dispatch={dispatch} />
         </div>
-        {orderActive ? <OrderConfirmed cart={cart} dispatch={dispatch} /> : ""}
+        <div className="order">
+            {orderActive ? <OrderConfirmed cart={cart} dispatch={dispatch} /> : ""}
+        </div>
         </>
     );
 }

@@ -1,18 +1,10 @@
 .orderDiv{
-    position: absolute;
+    /* position: fixed; */
     background-color: white;
     border-radius: 12px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* width: fit-content; */
-    width: 40%;
-    height: fit-content;
-    margin-inline: auto;   
-    padding: 5%;
+    padding: 12px;
     box-shadow: 0 20px 40px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.08);
-    z-index: 20;
+    z-index: 300;
 }
 .orderDiv > h1{
     color: hsl(14, 65%, 9%);
@@ -41,7 +33,6 @@
     color: hsl(14, 86%, 42%);
 }
 .price{
-    /* margin-left: 1.2rem; */
     margin-left: 1.0rem;
     font-weight: 400;
     margin-right: 0.8rem;

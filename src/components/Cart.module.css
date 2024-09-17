@@ -3,6 +3,7 @@
     /* margin-top: 5%; */
     padding: 6%;
     /* z-index: 991; */
+    height: fit-content;
 }
 .cartBody > h3{
     color: hsl(14, 86%, 42%);
