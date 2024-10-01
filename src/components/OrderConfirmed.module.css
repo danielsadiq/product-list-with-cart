@@ -2,9 +2,10 @@
     /* position: fixed; */
     background-color: white;
     border-radius: 12px;
-    padding: 12px;
+    padding: 40px;
     box-shadow: 0 20px 40px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.08);
     z-index: 300;
+    width: 500px;
 }
 .orderDiv > h1{
     color: hsl(14, 65%, 9%);
@@ -19,7 +20,7 @@
 .listItem{
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
 }
 .listItem >p{
     text-align: right;

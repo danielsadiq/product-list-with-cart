@@ -3,7 +3,10 @@ import styles from "./Item.module.css";
 import plus from "./assets/images/icon-increment-quantity.svg";
 import minus from "./assets/images/icon-decrement-quantity.svg";
 import AddToCart from './AddToCart';
-function Item({ item, dispatch, cart }) {
+import { useCart } from "../contexts/CartContext";
+
+function Item({item}) {
+    const { cart, dispatch} = useCart();
     const num = cart.filter(x => x.id === item.id)?.[0]?.['num'];
     return (
         <li>

@@ -1,13 +1,15 @@
-/* eslint-disable react/prop-types */
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 import emptyCart from "./assets/images/illustration-empty-cart.svg";
 import carbon from "./assets/images/icon-carbon-neutral.svg";
+import { useCart } from "../contexts/CartContext";
 
-function Cart({ cart, dispatch }) {
+
+function Cart() {
+    const {cart, dispatch} = useCart();
+    
     const TOTAL_AMOUNT = cart.reduce((a, b) => a + (b.price*b.num), 0);
     const TOTAL_NUM = cart.reduce((a, b) => a + b.num, 0);
-    // const [num, setNum] = useState(0);
 
     return (
         <div className={styles.cartBody}>

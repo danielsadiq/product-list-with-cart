@@ -3,7 +3,7 @@
 import ItemList from "./ItemList";
 import styles from "./Main.module.css";
 
-function Main({ children, items }) {
+function Main({ children }) {
     
     return (
         <div className={styles.main}>

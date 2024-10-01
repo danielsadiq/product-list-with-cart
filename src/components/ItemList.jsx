@@ -1,10 +1,12 @@
-/* eslint-disable react/prop-types */
 import styles from './ItemList.module.css'
 import Item from "./Item"
-function ItemList({items, dispatch, cart}) {
+import { useCart } from '../contexts/CartContext'
+function ItemList() {
+    const {items} = useCart();
+    
     return (
         <ul className={styles.ulList}>
-            {items.map(item => <Item item={item} key={item.name} dispatch={dispatch} cart={cart} />)}
+            {items.map(item => <Item item={item} key={item.name} />)}
         </ul>
     )
 }

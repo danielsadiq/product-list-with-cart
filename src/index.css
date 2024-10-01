@@ -18,6 +18,10 @@ body{
     z-index: -1;
     transition: 0.5s;
 }
+.show > #root{
+    background-color: navy;
+    /* align-items: center; */
+}
 .show{
     z-index: 2;
     height: 100vh;

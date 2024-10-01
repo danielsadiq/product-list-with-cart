@@ -1,7 +1,8 @@
-/* eslint-disable react/prop-types */
+import { useCart } from "../contexts/CartContext";
 import styles from "./OrderConfirmed.module.css";
 import orderImg from "./assets/images/icon-order-confirmed.svg";
-function OrderConfirmed({ cart, dispatch }) {
+function OrderConfirmed() {
+    const {cart, dispatch} = useCart();
     const TOTAL_AMOUNT = cart.reduce((a, b) => a + (b.price*b.num), 0);
 
     return (
