@@ -1,10 +1,9 @@
 .orderDiv{
-    /* position: fixed; */
     background-color: white;
     border-radius: 12px;
     padding: 40px;
-    box-shadow: 0 20px 40px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.08);
     z-index: 300;
+    opacity: 1;
     width: 500px;
 }
 .orderDiv > h1{

@@ -40,14 +40,30 @@ body{
     justify-content: center;
     align-items: center;
 }
-.grey-out + .order{
+.order-container{
+    position: absolute;
     height: 100vh;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,.5);
 }
+/* .grey-out + .order{
+    height: 100vh;
+} */
 
 
 @media (max-width: 767px) {
     .container{
         grid-template-columns: 1fr;
+    }
+    .order-container{
+        width: 100%;
     }
 }
 /* :root {

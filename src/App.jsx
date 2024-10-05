@@ -19,9 +19,9 @@ function App() {
             </Main>
             <Cart />
         </div>
-        <div className="order">
+        <OrderConfirmed/>
             {/* {orderActive ? <OrderConfirmed cart={cart} dispatch={dispatch} /> : ""} */}
-        </div>
+        
         </CartProvider>
     );
 }
