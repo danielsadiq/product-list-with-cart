@@ -52,6 +52,10 @@ body{
     align-items: center;
     justify-content: center;
     background-color: rgba(0,0,0,.5);
+    transition: all 0.3s;
+}
+.order-container.no-show{
+    display: none;
 }
 /* .grey-out + .order{
     height: 100vh;

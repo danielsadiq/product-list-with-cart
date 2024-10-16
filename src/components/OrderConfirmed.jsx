@@ -2,11 +2,11 @@ import { useCart } from "../contexts/CartContext";
 import styles from "./OrderConfirmed.module.css";
 import orderImg from "./assets/images/icon-order-confirmed.svg";
 function OrderConfirmed() {
-    const {cart, dispatch} = useCart();
+    const {cart, dispatch, orderActive} = useCart();
     const TOTAL_AMOUNT = cart.reduce((a, b) => a + (b.price*b.num), 0);
-
+    // if (!orderActive) return null;
     return (
-        <div className="order-container">
+        <div className={`order-container ${!orderActive ? "no-show": "show"}`}>
             <div className={styles.orderDiv}>
                 <img src={orderImg} alt="order-confirm" />
                 <h1>Order Confirmed</h1>

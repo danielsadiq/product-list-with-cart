@@ -53,7 +53,7 @@ function reducer(state, action) {
 
 function CartProvider({ children }) {
     const [state, dispatch] = useReducer(reducer, initialItems);
-    const { items } = state;
+    const { items, orderActive } = state;
     const cart = items.filter((x) => x.num > 0);
     useEffect(function () {
         async function getData() {
@@ -68,7 +68,8 @@ function CartProvider({ children }) {
             value={{
                 cart,
                 items,
-                dispatch
+                dispatch,
+                orderActive
             }}
         >
             {children}
